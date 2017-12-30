@@ -1,0 +1,531 @@
+static int sisi, panjang, lebar, tinggi, tinggiPrisma, alas, radius, sisiSejajar, bilangan, pilihan, nilai;
+static double hasil;
+static String romawi;
+static final double PI = 3.14;
+static boolean bool = true;
+static Scanner input = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        do {
+            System.out.println("==============================================");
+            System.out.println("         PROGRAM MATEMATIKA SEDERHANA         ");
+            System.out.println("==============================================");
+            System.out.println("");
+            System.out.println("PILIHAN MENU = ");
+            System.out.println("0. Keluar");
+            System.out.println("1. Penghitung Konversi Suhu");
+            System.out.println("2. Penghitung Luas Bidang Datar");
+            System.out.println("3. Penghitung Volume Bangun");
+            System.out.println("4. Konversi Bilangan");
+            System.out.print("Masukkan Pilihan Anda = ");
+            pilihan = input.nextInt();
+            switch (pilihan) {
+                case 0:
+                    Keluar();
+                    bool = false;
+                    break;
+                case 1:
+                    Suhu();
+                    bool = true;
+                    break;
+                case 2:
+                    Luas();
+                    bool = true;
+                    break;
+                case 3:
+                    Volume();
+                    bool = true;
+                    break;
+                case 4:
+                    Konversi();
+                    bool = true;
+                    break;
+                default:
+                    System.out.println("\n-------------------------------------");
+                    System.out.println("  Inputan Yang Anda Masukkan Salah!  ");
+                    System.out.println("-------------------------------------\n");
+                    bool = true;
+                    break;
+            }
+        } while (bool);
+    }
+
+    public static void Keluar() {
+        System.out.println("");
+        System.out.println("==============================================");
+        System.out.println(" TERIMA KASIH TELAH MENGGUNAKAN PROGRAM INI ! ");
+        System.out.println("==============================================");
+    }
+
+    private static void Suhu() {
+        System.out.println("\n----------------------------------");
+        System.out.println("     PENGHITUNG KONVERSI SUHU     ");
+        System.out.println("----------------------------------\n");
+        do {
+            System.out.println("0. Menu Utama");
+            System.out.println("1. Celcius -> Fahrenheit");
+            System.out.println("2. Celcius -> Kelvin");
+            System.out.println("3. Celcius -> Reamur");
+            System.out.print("Masukkan Pilihan Anda = ");
+            pilihan = input.nextInt();
+            switch (pilihan) {
+                case 0:
+                    System.out.println("\n------TERIMA KASIH!------\n" + "--KEMBALI KE MENU UTAMA--\n");
+                    bool = false;
+                    break;
+                case 1:
+                    System.out.println("\n----------------------------------");
+                    System.out.println("       CELCIUS -> FAHRENHEIT      ");
+                    System.out.println("----------------------------------\n");
+                    System.out.print("Masukkan Nilai Suhu = ");
+                    nilai = input.nextInt();
+                    double fahrenheit = 32 + nilai * 9 / 5;
+                    System.out.println("Hasil Konversi Suhu Ke Fahrenheit = " + fahrenheit + " F");
+                    System.out.println();
+                    bool = true;
+                    break;
+                case 2:
+                    System.out.println("\n----------------------------------");
+                    System.out.println("         CELCIUS -> KELVIN        ");
+                    System.out.println("----------------------------------\n");
+                    System.out.print("Masukkan Nilai Suhu = ");
+                    nilai = input.nextInt();
+                    double kelvin = nilai + 273;
+                    System.out.println("Hasil Konversi Suhu Ke Kelvin = " + kelvin + " K");
+                    System.out.println();
+                    bool = true;
+                    break;
+                case 3:
+                    System.out.println("\n----------------------------------");
+                    System.out.println("         CELCIUS -> REAMUR        ");
+                    System.out.println("----------------------------------\n");
+                    System.out.print("Masukkan Nilai Suhu = ");
+                    nilai = input.nextInt();
+                    double reamur = nilai * 4 / 5;
+                    System.out.println("Hasil Konversi Suhu Ke Reamur = " + reamur + " R");
+                    System.out.println();
+                    bool = true;
+                    break;
+                default:
+                    System.out.println("\n-------------------------------------");
+                    System.out.println("  Inputan Yang Anda Masukkan Salah!  ");
+                    System.out.println("-------------------------------------\n");
+                    bool = true;
+                    break;
+            }
+        } while (bool);
+    }
+
+    private static void Luas() {
+        System.out.println("\n--------------------------------------");
+        System.out.println("     PENGHITUNG LUAS BIDANG DATAR     ");
+        System.out.println("--------------------------------------\n");
+        do {
+            System.out.println("0. Menu Utama");
+            System.out.println("1. Persegi");
+            System.out.println("2. Segitiga");
+            System.out.println("3. Lingkaran");
+            System.out.println("4. Jajar Genjang");
+            System.out.println("5. Trapesium");
+            System.out.println("6. Persegi Panjang");
+            System.out.print("Masukkan Pilihan Anda = ");
+            pilihan = input.nextInt();
+            switch (pilihan) {
+                case 0:
+                    System.out.println("\n------TERIMA KASIH!------\n" + "--KEMBALI KE MENU UTAMA--\n");
+                    bool = false;
+                    break;
+                case 1:
+                    System.out.println("\n--------------------------------------");
+                    System.out.println("        PENGHITUNG LUAS PERSEGI       ");
+                    System.out.println("--------------------------------------\n");
+                    System.out.print("Masukkan Sisi = ");
+                    sisi = input.nextInt();
+                    hasil = sisi * sisi;
+                    System.out.println("Hasil Dari Luas Persegi Anda = " + hasil);
+                    System.out.println();
+                    bool = true;
+                    break;
+                case 2:
+                    System.out.println("\n--------------------------------------");
+                    System.out.println("       PENGHITUNG LUAS SEGITIGA       ");
+                    System.out.println("--------------------------------------\n");
+                    System.out.print("Masukkan Alas = ");
+                    alas = input.nextInt();
+                    System.out.print("Masukkan Tinggi = ");
+                    tinggi = input.nextInt();
+                    hasil = alas * tinggi * 1 / 2;
+                    System.out.println("Hasil Dari Luas Segitiga Anda = " + hasil);
+                    System.out.println();
+                    bool = true;
+                    break;
+                case 3:
+                    System.out.println("\n--------------------------------------");
+                    System.out.println("       PENGHITUNG LUAS LINGKARAN      ");
+                    System.out.println("--------------------------------------\n");
+                    System.out.print("Masukkan Jari - Jari = ");
+                    radius = input.nextInt();
+                    hasil = PI * radius * radius;
+                    System.out.println("Hasil Dari Luas Lingkaran Anda = " + hasil);
+                    System.out.println();
+                    bool = true;
+                    break;
+                case 4:
+                    System.out.println("\n--------------------------------------");
+                    System.out.println("     PENGHITUNG LUAS JAJAR GENJANG    ");
+                    System.out.println("--------------------------------------\n");
+                    System.out.print("Masukkan Alas = ");
+                    alas = input.nextInt();
+                    System.out.print("Masukkan Tinggi = ");
+                    tinggi = input.nextInt();
+                    hasil = alas * tinggi;
+                    System.out.println("Hasil Dari Luas Jajar Genjang Anda = " + hasil);
+                    System.out.println();
+                    bool = true;
+                    break;
+                case 5:
+                    System.out.println("\n--------------------------------------");
+                    System.out.println("       PENGHITUNG LUAS TRAPESIUM      ");
+                    System.out.println("--------------------------------------\n");
+                    System.out.print("Masukkan Alas = ");
+                    alas = input.nextInt();
+                    System.out.print("Masukkan Sisi Yang Sejajar Dengan Alas = ");
+                    sisiSejajar = input.nextInt();
+                    System.out.print("Masukkan Tinggi = ");
+                    tinggi = input.nextInt();
+                    hasil = (alas + sisiSejajar) * tinggi * 1 / 2;
+                    System.out.println("Hasil Dari Luas Trapesium Anda = " + hasil);
+                    System.out.println();
+                    bool = true;
+                    break;
+                case 6:
+                    System.out.println("\n--------------------------------------");
+                    System.out.println("    PENGHITUNG LUAS PERSEGI PANJANG   ");
+                    System.out.println("--------------------------------------\n");
+                    System.out.print("Masukkan Panjang = ");
+                    panjang = input.nextInt();
+                    System.out.print("Masukkan Lebar = ");
+                    lebar = input.nextInt();
+                    hasil = panjang * lebar;
+                    System.out.println("Hasil Dari Luas Persegi Panjang Anda = " + hasil);
+                    System.out.println();
+                    bool = true;
+                    break;
+                default:
+                    System.out.println("\n-------------------------------------");
+                    System.out.println("  Inputan Yang Anda Masukkan Salah!  ");
+                    System.out.println("-------------------------------------\n");
+                    bool = true;
+                    break;
+            }
+        } while (bool);
+    }
+
+    private static void Volume() {
+        System.out.println("\n--------------------------------------");
+        System.out.println("       PENGHITUNG VOLUME BANGUN       ");
+        System.out.println("--------------------------------------\n");
+        do {
+            System.out.println("0. Menu Utama");
+            System.out.println("1. Kubus");
+            System.out.println("2. Kerucut");
+            System.out.println("3. Silinder");
+            System.out.println("4. Bola");
+            System.out.println("5. Balok");
+            System.out.println("6. Prisma");
+            System.out.print("Masukkan Pilihan Anda = ");
+            pilihan = input.nextInt();
+            switch (pilihan) {
+                case 0:
+                    System.out.println("\n------TERIMA KASIH!------\n" + "--KEMBALI KE MENU UTAMA--\n");
+                    bool = false;
+                    break;
+                case 1:
+                    System.out.println("\n--------------------------------------");
+                    System.out.println("        PENGHITUNG VOLUME KUBUS       ");
+                    System.out.println("--------------------------------------\n");
+                    System.out.print("Masukkan Rusuk = ");
+                    sisi = input.nextInt();
+                    hasil = sisi * sisi * sisi;
+                    System.out.println("Hasil Dari Volume Kubus Anda = " + hasil);
+                    System.out.println();
+                    bool = true;
+                    break;
+                case 2:
+                    System.out.println("\n--------------------------------------");
+                    System.out.println("       MENGHITUNG VOLUME KERUCUT      ");
+                    System.out.println("--------------------------------------\n");
+                    System.out.print("Masukkan Jari - Jari = ");
+                    radius = input.nextInt();
+                    System.out.print("Masukkan Tinggi = ");
+                    tinggi = input.nextInt();
+                    hasil = PI * radius * radius * tinggi * 1 / 3;
+                    System.out.println("Hasil Dari Volume Kerucut Anda = " + hasil);
+                    System.out.println();
+                    bool = true;
+                    break;
+                case 3:
+                    System.out.println("\n--------------------------------------");
+                    System.out.println("      MENGHITUNG VOLUME SILINDER      ");
+                    System.out.println("--------------------------------------\n");
+                    System.out.print("Masukkan Jari - Jari = ");
+                    radius = input.nextInt();
+                    System.out.print("Masukkan Tinggi = ");
+                    tinggi = input.nextInt();
+                    hasil = radius * radius * tinggi * PI;
+                    System.out.println("Hasil Dari Volume Silinder Anda = " + hasil);
+                    System.out.println();
+                    bool = true;
+                    break;
+                case 4:
+                    System.out.println("\n--------------------------------------");
+                    System.out.println("        MENGHITUNG VOLUME BOLA        ");
+                    System.out.println("--------------------------------------\n");
+                    System.out.print("Masukkan Jari - Jari = ");
+                    radius = input.nextInt();
+                    hasil = radius * radius * radius * PI * 4 / 3;
+                    System.out.println("Hasil Dari Volume Bola Anda = " + hasil);
+                    System.out.println();
+                    bool = true;
+                    break;
+                case 5:
+                    System.out.println("\n--------------------------------------");
+                    System.out.println("        MENGHITUNG VOLUME BALOK       ");
+                    System.out.println("--------------------------------------\n");
+                    System.out.print("Masukkan Panjang = ");
+                    panjang = input.nextInt();
+                    System.out.print("Masukkan Lebar = ");
+                    lebar = input.nextInt();
+                    System.out.print("Masukkan Tinggi = ");
+                    tinggi = input.nextInt();
+                    hasil = panjang * lebar * tinggi;
+                    System.out.println("Hasir Dari Volume Balok Anda = " + hasil);
+                    System.out.println();
+                    bool = true;
+                    break;
+                case 6:
+                    System.out.println("\n--------------------------------------");
+                    System.out.println("  MENGHITUNG VOLUME PRISMA SEGI TIGA  ");
+                    System.out.println("--------------------------------------\n");
+                    System.out.print("Masukkan Tinggi Segitiga = ");
+                    tinggi = input.nextInt();
+                    System.out.print("Masukkan Alas = ");
+                    alas = input.nextInt();
+                    System.out.print("Masukkan Tinggi Prisma = ");
+                    tinggiPrisma = input.nextInt();
+                    hasil = (alas * tinggi * 1 / 2) * tinggiPrisma;
+                    System.out.println("Hasil Dari Volume Prisma Segitiga Anda = " + hasil);
+                    System.out.println();
+                    bool = true;
+                    break;
+                default:
+                    System.out.println("\n-------------------------------------");
+                    System.out.println("  Inputan Yang Anda Masukkan Salah!  ");
+                    System.out.println("-------------------------------------\n");
+                    bool = true;
+                    break;
+            }
+        } while (bool);
+    }
+
+    private static void Konversi() {
+        System.out.println("\n-------------------------------");
+        System.out.println("       KONVERSI BILANGAN       ");
+        System.out.println("-------------------------------\n");
+        do {
+            System.out.println("0. Menu Utama");
+            System.out.println("1. Romawi Ke Bilangan");
+            System.out.println("2. Bilangan Ke Romawi");
+            System.out.println("3. Bilangan Ke Kalimat");
+            System.out.println("4. Bilangan Ke Biner");
+            System.out.print("Masukkan Pilihan Anda = ");
+            pilihan = input.nextInt();
+            switch (pilihan) {
+                case 0:
+                    System.out.println("\n------TERIMA KASIH!------\n" + "--KEMBALI KE MENU UTAMA--\n");
+                    bool = false;
+                    break;
+                case 1:
+                    System.out.println("\n-------------------------------");
+                    System.out.println("  KONVERSI ROMAWI KE BILANGAN  ");
+                    System.out.println("-------------------------------\n");
+                    System.out.print("Masukkan Bilangan Romawi = ");
+                    input.nextLine();
+                    romawi = input.nextLine();
+                    String bilRomawi = romawi.toUpperCase();
+                    int angka = 0;
+                    for (int i = 0; i < bilRomawi.length(); i++) {
+                        char UbahKeAngka = bilRomawi.charAt(i);
+                        switch (UbahKeAngka) {
+                            case 'M':
+                                angka += 1000;
+                                break;
+                            case 'D':
+                                angka += 500;
+                                break;
+                            case 'C':
+                                angka += 100;
+                                break;
+                            case 'L':
+                                angka += 50;
+                                break;
+                            case 'X':
+                                angka += 10;
+                                break;
+                            case 'V':
+                                angka += 5;
+                                break;
+                            case 'I':
+                                angka += 1;
+                                break;
+                        }
+                    }
+                    if (bilRomawi.contains("IV")) {
+                        angka -= 2;
+                    }
+                    if (bilRomawi.contains("IX")) {
+                        angka -= 2;
+                    }
+                    if (bilRomawi.contains("XL")) {
+                        angka -= 10;
+                    }
+                    if (bilRomawi.contains("XC")) {
+                        angka -= 10;
+                    }
+                    if (bilRomawi.contains("CD")) {
+                        angka -= 100;
+                    }
+                    if (bilRomawi.contains("CM")) {
+                        angka -= 100;
+                    }
+                    System.out.print("Bentuk Angka Dari Romawi Anda = " + angka);
+                    System.out.println("\n");
+                    bool = true;
+                    break;
+                case 2:
+                    System.out.println("\n-------------------------------");
+                    System.out.println("  KONVERSI BILANGAN KE ROMAWI  ");
+                    System.out.println("-------------------------------\n");
+                    System.out.print("Masukkan Bilangan = ");
+                    bilangan = input.nextInt();
+                    System.out.print("Konversi Bilangan Anda = ");
+                    if (bilangan > 0) {
+                        while (bilangan >= 1000) {
+                            System.out.print("M");
+                            bilangan -= 1000;
+                        }
+                        if (bilangan >= 900) {
+                            System.out.print("CM");
+                            bilangan -= 900;
+                        }
+                        if (bilangan >= 500) {
+                            System.out.print("D");
+                            bilangan -= 500;
+                        }
+                        if (bilangan >= 400) {
+                            System.out.print("CD");
+                            bilangan -= 400;
+                        }
+                        while (bilangan >= 100) {
+                            System.out.print("C");
+                            bilangan -= 100;
+                        }
+                        if (bilangan >= 90) {
+                            System.out.print("XC");
+                            bilangan -= 90;
+                        }
+                        if (bilangan >= 50) {
+                            System.out.print("L");
+                            bilangan -= 50;
+                        }
+                        if (bilangan >= 40) {
+                            System.out.print("XL");
+                            bilangan -= 40;
+                        }
+                        while (bilangan >= 10) {
+                            System.out.print("X");
+                            bilangan -= 10;
+                        }
+                        if (bilangan >= 9) {
+                            System.out.print("IX");
+                            bilangan -= 9;
+                        }
+                        if (bilangan >= 5) {
+                            System.out.print("V");
+                            bilangan -= 5;
+                        }
+                        if (bilangan >= 4) {
+                            System.out.print("IV");
+                            bilangan -= 4;
+                        }
+                        while (bilangan >= 1) {
+                            System.out.print("I");
+                            bilangan -= 1;
+                        }
+                    }
+                    System.out.println("\n");
+                    bool = true;
+                    break;
+                case 3:
+                    System.out.println("\n-------------------------------");
+                    System.out.println("  KONVERSI BILANGAN KE KALIMAT ");
+                    System.out.println("-------------------------------\n");
+                    System.out.print("Masukkan Bilangan = ");
+                    bilangan = input.nextInt();
+                    System.out.println("Bilangan Anda Adalah = " + angkaKalimat(bilangan) + "\n");
+                    bool = true;
+                    break;
+                case 4:
+                    System.out.println("\n-------------------------------");
+                    System.out.println("   KONVERSI BILANGAN KE BINER  ");
+                    System.out.println("-------------------------------\n");
+                    System.out.print("Masukkan Bilangan = ");
+                    bilangan = input.nextInt();
+                    String biner = "";
+                    if (bilangan <= 0) {
+                        System.out.println("Bilangan Harus Lebih Dari Nol !\n");
+                    } else {
+                        while (bilangan > 0) {
+                            biner = (bilangan % 2) + biner;
+                            bilangan = bilangan / 2;
+                        }
+                        System.out.println("Bentuk Biner Dari Bilangan Anda = " + biner);
+                        System.out.println();
+                    }
+                    bool = true;
+                    break;
+                default:
+                    System.out.println("\n-------------------------------------");
+                    System.out.println("  Inputan Yang Anda Masukkan Salah!  ");
+                    System.out.println("-------------------------------------\n");
+                    bool = true;
+                    break;
+            }
+        } while (bool);
+    }
+
+    private static String angkaKalimat(int angka) {
+        String hasil = "";
+        String[] huruf = {"", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas"};
+        if (angka < 12) {
+            hasil += huruf[angka];
+        } else if (angka < 20) {
+            hasil += angkaKalimat(angka - 10) + " Belas";
+        } else if (angka < 100) {
+            hasil += angkaKalimat(angka / 10) + " Puluh " + angkaKalimat(angka % 10);
+        } else if (angka < 200) {
+            hasil += "Seratus " + angkaKalimat(angka - 100);
+        } else if (angka < 1000) {
+            hasil += angkaKalimat(angka / 100) + " Ratus " + angkaKalimat(angka % 100);
+        } else if (angka < 2000) {
+            hasil += "Seribu " + angkaKalimat(angka - 1000);
+        } else if (angka < 1000000) {
+            hasil += angkaKalimat(angka / 1000) + " Ribu " + angkaKalimat(angka % 1000);
+        } else if (angka < 1000000000) {
+            hasil += angkaKalimat(angka / 1000000) + " Juta " + angkaKalimat(angka % 1000000);
+        } else if (angka >= 1000000000) {
+            hasil = "Angka Yang Anda Masukkan Terlalu Besar!";
+        }
+        return hasil;
+    }
+}
